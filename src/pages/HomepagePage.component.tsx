@@ -4,7 +4,7 @@ const HomepagePage = () => {
 
     return (
         <DefaultPageWrapper>
-            aaa
+            homepage
         </DefaultPageWrapper>
     )
 }
