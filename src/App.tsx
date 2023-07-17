@@ -7,7 +7,7 @@ import FullScreenSpinner from './components/FullScreenSpinner/FullScreenSpinner.
 function App() {
   library.add(fas)
   const Content = FullScreenSpinner(AppRouter)
-  const isLoading = true;
+  const isLoading = false;
   return (
     <>
       <Content isLoading={isLoading} />

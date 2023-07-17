@@ -1,6 +1,13 @@
+import DefaultPageWrapper from "../components/DefaultPageWrapper/DefaultPageWrapper.component"
+import MobileMenu from "../components/MobileMenu/MobileMenu.component"
+
 const HomepagePage = () => {
 
-    return <h1>hello</h1>
+    return (
+        <DefaultPageWrapper>
+            <MobileMenu />
+        </DefaultPageWrapper>
+    )
 }
 
 export default HomepagePage
