@@ -14,10 +14,12 @@ const FullScreenSpinner = (WrapperdComponent: React.ElementType) => {
         const [current, setCurrent] = useState<IconName>("guitar")
 
         const SwitchInstrument = () => {
-            setTimeout(() => {
-                setCounter(counter > 1 ? 0 : counter + 1)
-                setCurrent(instruments[counter])
-            }, 1000)
+            if(isLoading){
+                setTimeout(() => {
+                    setCounter(counter > 1 ? 0 : counter + 1)
+                    setCurrent(instruments[counter])
+                }, 1000)
+            }
         }
 
         useEffect(() => SwitchInstrument())

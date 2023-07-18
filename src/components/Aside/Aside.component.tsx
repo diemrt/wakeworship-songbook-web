@@ -1,5 +1,5 @@
 import ShowOnCondition from "../ShowOnCondition/ShowOnCondition.component"
-import TwAside, { TwAsideRow, TwCloseButton, TwCloseButtonWrapper } from "./style"
+import TwAside, { TwAsideRow, TwAsideShadow, TwCloseButton, TwCloseButtonWrapper } from "./style"
 
 interface Props {
     visible: boolean,
@@ -11,17 +11,22 @@ const Aside = ({
 } : Props) => {
 
     const AsideOnCondition = ShowOnCondition(TwAside)
+    const AsideShadowOnCondition = ShowOnCondition(TwAsideShadow)
 
     return (
-        <AsideOnCondition condition={visible}>
-            <TwAsideRow>
-                <TwCloseButtonWrapper onClick={onClose}>
-                    <TwCloseButton icon={["fas", "xmark"]}/>
-                </TwCloseButtonWrapper>
-            </TwAsideRow>
-            <span>Link</span>
-            <span>Link2</span>
-        </AsideOnCondition>
+        <>
+            <AsideShadowOnCondition condition={visible} onClick={onClose}/>
+            <AsideOnCondition condition={visible}>
+                <TwAsideRow>
+                    <TwCloseButtonWrapper onClick={onClose}>
+                        <TwCloseButton icon={["fas", "xmark"]}/>
+                    </TwCloseButtonWrapper>
+                </TwAsideRow>
+                <span>Link</span>
+                <span>Link2</span>
+            </AsideOnCondition>
+        </>
+        
     )
 }
 

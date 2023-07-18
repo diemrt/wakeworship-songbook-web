@@ -14,7 +14,7 @@ const Navbar = () => {
                 <TwLogo src="/logo.svg" />
             </Link>
             <TwAsideButtonWrapper onClick={open}>
-                <TwAsideButton icon={["fas", "table-columns"]} />
+                <TwAsideButton icon={["fas", "route"]} />
             </TwAsideButtonWrapper>
             <Aside onClose={close} visible={visible} />
         </TwNavbarWrapper>
