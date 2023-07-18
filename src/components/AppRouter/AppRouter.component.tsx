@@ -1,13 +1,13 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
-import HomepagePage from "../../pages/HomepagePage.component"
+import AddSongPage from "../../pages/AddSongPage/AddSongPage.component"
 
 const AppRouter = () => {
 
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/homepage" element={<HomepagePage />} />
-                <Route path="*" element={<Navigate to="/homepage" replace />} />
+                <Route path="/add" element={<AddSongPage />} />
+                <Route path="*" element={<Navigate to="/add" replace />} />
             </Routes>
         </BrowserRouter>
     )
