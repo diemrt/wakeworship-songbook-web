@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import Aside from "../Aside/Aside.component"
-import TwNavbarWrapper, { TwAsideButton, TwAsideButtonWrapper, TwLogo } from "./style"
+import TwNavbarWrapper, { TwAsideButton, TwAsideButtonWrapper, TwAsideLinkButtonWrapper, TwLogo, TwNavbarButtonsGroup } from "./style"
 
 const Navbar = () => {
     const [visible, setVisibility] = useState(false)
@@ -10,12 +10,19 @@ const Navbar = () => {
 
     return (
         <TwNavbarWrapper>
-            <Link to="/homepage">
-                <TwLogo src="/logo.svg" />
-            </Link>
-            <TwAsideButtonWrapper onClick={open}>
-                <TwAsideButton icon={["fas", "route"]} />
-            </TwAsideButtonWrapper>
+            <TwNavbarButtonsGroup>
+                <Link to="/homepage">
+                    <TwLogo src="/logo.svg" />
+                </Link>
+                <TwAsideButtonWrapper onClick={open}>
+                    <TwAsideButton icon={["fas", "list-ol"]} />
+                </TwAsideButtonWrapper>
+            </TwNavbarButtonsGroup>
+            <TwNavbarButtonsGroup>
+                <TwAsideLinkButtonWrapper to={"/add"}>
+                    <TwAsideButton icon={["fas", "keyboard"]} />
+                </TwAsideLinkButtonWrapper>
+            </TwNavbarButtonsGroup>
             <Aside onClose={close} visible={visible} />
         </TwNavbarWrapper>
     )
