@@ -2,6 +2,7 @@ import { Control, FieldErrors, FieldValues, UseFormRegister, useFieldArray } fro
 import SelectWrapper from "../Select/SelectWrapper.component"
 import { TwSongBlockSelect, TwSongBlockSelectWarpper, TwSongTitleLabel } from "./style"
 import { errorFormLabels } from "../utils"
+import SongRowForm from "./SongRowForm.component"
 
 interface Props{
     block: any,
@@ -38,7 +39,16 @@ const SongBlockForm = ({
             /> 
             <>{
                 rowFields.map((row, rowIndex) => (
-                    <>{rowIndex}</>
+                    <SongRowForm
+                        control={control}
+                        errors={errors}
+                        row={block}
+                        rowIndex={rowIndex}
+                        blockIndex={blockIndex}
+                        formItemsData={formItemsData}
+                        register={register}
+                        key={row.id}
+                    />
                 ))
             }
             </>

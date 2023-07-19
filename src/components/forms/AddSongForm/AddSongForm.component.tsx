@@ -30,8 +30,8 @@ const AddSongForm = () => {
                                 },
                                 {
                                     chordType: {
-                                        lable: "Sol",
-                                        value: "g"
+                                        label: "La",
+                                        value: "a"
                                     },
                                     phrase: " e va bene così"
                                 }
