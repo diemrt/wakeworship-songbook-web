@@ -20,7 +20,7 @@ const Navbar = () => {
             </TwNavbarButtonsGroup>
             <TwNavbarButtonsGroup>
                 <TwAsideLinkButtonWrapper to={"/add"}>
-                    <TwAsideButton icon={["fas", "keyboard"]} />
+                    <TwAsideButton icon={["fas", "file-arrow-up"]} />
                 </TwAsideLinkButtonWrapper>
             </TwNavbarButtonsGroup>
             <Aside onClose={close} visible={visible} />
