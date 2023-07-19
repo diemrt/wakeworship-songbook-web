@@ -4,7 +4,7 @@ import AddSongForm from "../../components/forms/AddSongForm/AddSongForm.componen
 const AddSongPage = () => {
 
     return (
-        <DefaultPageWrapper title="Aggiungi">
+        <DefaultPageWrapper title="Nuovo Brano">
             <AddSongForm />
         </DefaultPageWrapper>
     )
