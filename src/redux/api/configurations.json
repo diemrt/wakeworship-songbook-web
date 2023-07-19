@@ -1,0 +1,36 @@
+{
+    "endPoints": {
+      "development": {
+        "api": {
+          "host": "",
+          "port": "",
+          "protocol": "https",
+          "prefix": "api",
+          "version": "1"
+        },
+        "azureFunction": {
+          "host": "",
+          "port": "",
+          "protocol": "https",
+          "prefix": "api",
+          "version": "1"
+        }
+      },
+      "production": {
+        "api": {
+          "host": "",
+          "port": "",
+          "protocol": "https",
+          "prefix": "api",
+          "version": "1"
+        },
+        "azureFunction": {
+          "host": "",
+          "port": "",
+          "protocol": "https",
+          "prefix": "api",
+          "version": "1"
+        }
+      }
+    }
+  }
