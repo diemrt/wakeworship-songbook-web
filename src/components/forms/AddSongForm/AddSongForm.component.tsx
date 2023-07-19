@@ -1,13 +1,15 @@
-import { useForm } from "react-hook-form"
+import { FieldValues, useForm } from "react-hook-form"
 import FormSection from "../FormSection/FormSection.component"
 import InputWrapper from "../Input/InputWrapper.component"
 import TwFormGroup, { TwFormSubmitButton, TwFormatButton, TwInput, TwInputWrapper, TwLabel, TwSelect, TwSelectWrapper } from "./style"
 import { errorFormLabels } from "../utils"
 import SelectWrapper from "../Select/SelectWrapper.component"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { useFetchFormItemsDataQuery } from "../../../redux/formItems/formItems.api"
 
 const AddSongForm = () => {
-    const { handleSubmit, control, register, formState: { errors } } = useForm()
+    const { data: formItemsData } = useFetchFormItemsDataQuery(undefined)
+    const { handleSubmit, control, register, formState: { errors } } = useForm<FieldValues>()
     const onSubmit = () => {}
 
     return (
@@ -36,7 +38,7 @@ const AddSongForm = () => {
                     register={register}
                     errors={errors}
                     control={control}
-                    options={ []}
+                    options={ formItemsData?.chordTypeItems ?? []}
                     rules={{ required: errorFormLabels.REQUIRED }}
                     />
                     <InputWrapper

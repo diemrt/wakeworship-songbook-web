@@ -15,5 +15,8 @@ const baseQueryWithRetry = retry(baseQuery, { maxRetries: 1 })
 
 export const api = createApi({
   baseQuery: baseQueryWithRetry,
-  endpoints: () => ({})
+  endpoints: () => ({}),
+  tagTypes: [
+    'formItems'
+  ]
 })

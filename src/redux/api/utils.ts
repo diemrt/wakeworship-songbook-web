@@ -39,7 +39,6 @@ const getRootUrl = (endpoint: ApiEndpoint) => {
 const endPoints: { [key: string]: EndPoint } = configJson.endPoints
 
 export const apiRootUrl = getRootUrl(endPoints[ApiCurrentEnviroment()].api);
-export const azureFunctionRootUrl = getRootUrl(endPoints[ApiCurrentEnviroment()].azureFunction);
 
 export const LIST_DEFAULT_ITEMS_PER_PAGE = 10
 
