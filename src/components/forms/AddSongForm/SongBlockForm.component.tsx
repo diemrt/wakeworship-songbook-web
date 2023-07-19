@@ -1,6 +1,6 @@
 import { Control, FieldErrors, FieldValues, UseFormRegister, useFieldArray } from "react-hook-form"
 import SelectWrapper from "../Select/SelectWrapper.component"
-import { TwSongBlockSelect, TwSongBlockSelectWarpper, TwSongTitleLabel } from "./style"
+import { TwAddSongGenericSelect, TwAddSongGenericSelectWarpper, TwSongBlockWrapper } from "./style"
 import { errorFormLabels } from "../utils"
 import SongRowForm from "./SongRowForm.component"
 
@@ -24,11 +24,10 @@ const SongBlockForm = ({
     const { fields: rowFields } = useFieldArray({control, name: `blocks.${blockIndex}.rows`})
 
     return (
-        <>
+        <TwSongBlockWrapper>
             <SelectWrapper 
-                SelectWarpperComponent={TwSongBlockSelectWarpper}
-                LabelComponent={TwSongTitleLabel}
-                SelectComponent={TwSongBlockSelect}
+                SelectWarpperComponent={TwAddSongGenericSelectWarpper}
+                SelectComponent={TwAddSongGenericSelect}
                 name={`blocks.${blockIndex}.type` as const}
                 register={register}
                 errors={errors}
@@ -52,7 +51,7 @@ const SongBlockForm = ({
                 ))
             }
             </>
-        </>
+        </TwSongBlockWrapper>
     )
 }
 export default SongBlockForm

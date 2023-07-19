@@ -1,13 +1,27 @@
 import tw from "twin.macro";
 import ReactSelect from 'react-select'
 
-export const TwAddSongWrapper = tw.form`flex flex-col gap-10`
+//generici
+export const TwAddSongWrapper = tw.form`flex flex-col gap-20`
+export const TwAddSongHeader = tw.section`flex flex-col gap-10 border-b pb-3`
+export const TwAddSongSubtitlesWrapper = tw.div`flex gap-10`
+export const TwAddSongGenericLable = tw.label`text-zinc-500 font-medium text-sm`
+export const TwAddSongGenericSelectWarpper = tw.section`flex w-fit flex-col gap-1`
+export const TwAddSongGenericSelect = tw(ReactSelect)`text-sm`
 
-const TwSongTitleInputWrapper = tw.section`flex flex-col gap-1`
-export const TwSongTitleInput = tw.input`outline-none block h-[38px] rounded border-0 py-1.5 px-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-50 sm:text-sm sm:leading-6 disabled:text-zinc-400`
-export const TwSongTitleLabel = tw.label`text-zinc-500 font-medium text-sm`
+//titolo
+export const TwSongTitleInputWrapper = tw.section`flex flex-col gap-1`
+export const TwSongTitleInput = tw.input`outline-none text-3xl font-bold text-zinc-800`
 
-export const TwSongBlockSelectWarpper = tw.section`flex flex-col gap-1`
-export const TwSongBlockSelect = tw(ReactSelect)`text-sm`
+//sottotitoli
+export const TwSongSubtitleInputWrapper = tw.section`flex w-fit items-center gap-2`
+export const TwSongSubtitleInput = tw.input`outline-none w-12 text-sm text-zinc-800`
 
-export default TwSongTitleInputWrapper
+//sezioni
+export const TwSongBlockWrapper = tw.div`flex flex-col gap-8`
+
+//righe
+export const TwSongRowWrapper = tw.div`flex w-full items-center gap-1`
+export const TwSongRowPhraseChordWrapper = tw.div`flex flex-col gap-1`
+export const TwSongPhraseInputWrapper = tw.section`flex items-center gap-0`
+export const TwSongPhraseInput = tw.input`outline-none text-sm text-zinc-800`

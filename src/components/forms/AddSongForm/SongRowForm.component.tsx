@@ -1,6 +1,6 @@
 import { Control, FieldErrors, FieldValues, UseFormRegister, useFieldArray } from "react-hook-form"
 import SelectWrapper from "../Select/SelectWrapper.component"
-import TwSongTitleInputWrapper, { TwSongBlockSelect, TwSongBlockSelectWarpper, TwSongTitleInput, TwSongTitleLabel } from "./style"
+import {TwAddSongGenericSelect, TwAddSongGenericSelectWarpper, TwSongPhraseInput, TwSongPhraseInputWrapper, TwSongRowPhraseChordWrapper, TwSongRowWrapper } from "./style"
 import { errorFormLabels } from "../utils"
 import InputWrapper from "../Input/InputWrapper.component"
 
@@ -26,14 +26,13 @@ const SongRowForm = ({
     const { fields: chordPhraseFields } = useFieldArray({control, name: `blocks.${blockIndex}.rows.${rowIndex}.chordPhrases`})
 
     return (
-        <>
+        <TwSongRowWrapper>
             {
                 chordPhraseFields.map((chordPhrase, chordPhraseIndex) => (
-                    <div key={chordPhrase.id}>
+                    <TwSongRowPhraseChordWrapper key={chordPhrase.id}>
                         <SelectWrapper 
-                            SelectWarpperComponent={TwSongBlockSelectWarpper}
-                            LabelComponent={TwSongTitleLabel}
-                            SelectComponent={TwSongBlockSelect}
+                            SelectWarpperComponent={TwAddSongGenericSelectWarpper}
+                            SelectComponent={TwAddSongGenericSelect}
                             name={`blocks.${blockIndex}.rows.${rowIndex}.chordPhrases.${chordPhraseIndex}.chordType` as const}
                             register={register}
                             errors={errors}
@@ -43,9 +42,8 @@ const SongRowForm = ({
                             rules={{ required: errorFormLabels.REQUIRED }}
                         /> 
                         <InputWrapper 
-                            InputComponent={TwSongTitleInput}
-                            InputWrapperComponent={TwSongTitleInputWrapper}
-                            LabelComponent={TwSongTitleLabel}
+                            InputComponent={TwSongPhraseInput}
+                            InputWrapperComponent={TwSongPhraseInputWrapper}
                             name={`blocks.${blockIndex}.rows.${rowIndex}.chordPhrases.${chordPhraseIndex}.phrase` as const}
                             placeholder="Testo"
                             type="text"
@@ -54,10 +52,10 @@ const SongRowForm = ({
                             errors={errors}
                             rules={{ required: errorFormLabels.REQUIRED }}
                         />
-                    </div>
+                    </TwSongRowPhraseChordWrapper>
                 ))
             }
-        </>
+        </TwSongRowWrapper>
     )
 }
 

@@ -6,7 +6,7 @@ import useWatchFieldValueHook, { HookProps } from "./useWatchFieldValueHook.hook
 
 type CustomSelectProps<TFieldValues extends FieldValues> = {
     SelectWarpperComponent: React.ElementType,
-    LabelComponent: React.ElementType,
+    LabelComponent?: React.ElementType,
     id?: string
     name: Path<TFieldValues>
     rules?: RegisterOptions
@@ -46,7 +46,8 @@ const SelectWrapper = <TFieldValues extends Record<string, unknown>>({
 
   return (
     <SelectWarpperComponent className={className}>
-      <LabelComponent>{rest.label}{rules?.required && "*"}</LabelComponent>
+      {typeof LabelComponent !== "undefined" 
+      ? (<LabelComponent>{rest?.label}{rules?.required && "*"}</LabelComponent>) : null}
       <Controller
         name={name}
         control={control}

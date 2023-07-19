@@ -1,8 +1,9 @@
 import { FieldValues, useFieldArray, useForm } from "react-hook-form"
 import InputWrapper from "../Input/InputWrapper.component"
 import { errorFormLabels } from "../utils"
-import TwSongTitleInputWrapper, { TwAddSongWrapper, TwSongTitleInput, TwSongTitleLabel } from "./style"
+import { TwAddSongGenericLable, TwAddSongGenericSelect, TwAddSongGenericSelectWarpper, TwAddSongHeader, TwAddSongSubtitlesWrapper, TwAddSongWrapper, TwSongSubtitleInput, TwSongSubtitleInputWrapper, TwSongTitleInput, TwSongTitleInputWrapper } from "./style"
 import SongBlockForm from "./SongBlockForm.component"
+import SelectWrapper from "../Select/SelectWrapper.component"
 
 const AddSongForm = () => {
     const formItemsData = {
@@ -12,6 +13,11 @@ const AddSongForm = () => {
     const { register, control, formState: { errors } } = useForm<FieldValues>({
         defaultValues: {
             title: "1. La musica",
+            key: {
+                label: "Do",
+                value: "c"
+            },
+            capo: 0,
             blocks: [
                 {
                     type: {
@@ -47,18 +53,41 @@ const AddSongForm = () => {
 
     return (
         <TwAddSongWrapper>
-            <InputWrapper 
-            InputComponent={TwSongTitleInput}
-            InputWrapperComponent={TwSongTitleInputWrapper}
-            LabelComponent={TwSongTitleLabel}
-            name="title"
-            placeholder="Titolo"
-            type="text"
-            label="Titolo"
-            register={register}
-            errors={errors}
-            rules={{ required: errorFormLabels.REQUIRED }}
-            />
+            <TwAddSongHeader>
+                <InputWrapper 
+                InputComponent={TwSongTitleInput}
+                InputWrapperComponent={TwSongTitleInputWrapper}
+                name="title"
+                placeholder="Titolo"
+                type="text"
+                label="Titolo"
+                register={register}
+                errors={errors}
+                rules={{ required: errorFormLabels.REQUIRED }}
+                />
+                <TwAddSongSubtitlesWrapper>
+                    <SelectWrapper 
+                    SelectWarpperComponent={TwAddSongGenericSelectWarpper}
+                    LabelComponent={TwAddSongGenericLable}
+                    SelectComponent={TwAddSongGenericSelect}
+                    name="key"
+                    register={register}
+                    label="Chiave:"
+                    control={control}
+                    options={formItemsData?.chordTypeItems ?? []}
+                    /> 
+                    <InputWrapper 
+                    InputComponent={TwSongSubtitleInput}
+                    InputWrapperComponent={TwSongSubtitleInputWrapper}
+                    LabelComponent={TwAddSongGenericLable}
+                    name="capo"
+                    placeholder="Capotasto"
+                    type="number"
+                    label="Capotasto:"
+                    register={register}
+                    />
+                </TwAddSongSubtitlesWrapper>
+            </TwAddSongHeader>
             {
                 blockFields.map((block, blockIndex) => (
                     <SongBlockForm 
