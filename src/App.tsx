@@ -3,6 +3,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 import AppRouter from './components/AppRouter/AppRouter.component';
 import FullScreenSpinner from './components/FullScreenSpinner/FullScreenSpinner.component';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   library.add(fas)
@@ -11,6 +12,7 @@ function App() {
   return (
     <>
       <Content isLoading={isLoading} />
+      <ToastContainer autoClose={2000} />
     </>
   );
 }
