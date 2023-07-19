@@ -14,13 +14,13 @@ const Navbar = () => {
                 <Link to="/homepage">
                     <TwLogo src="/logo.svg" />
                 </Link>
-                <TwAsideButtonWrapper onClick={open}>
+                <TwAsideButtonWrapper onClick={open} title="Lista Brani">
                     <TwAsideButton icon={["fas", "list-ol"]} />
                 </TwAsideButtonWrapper>
             </TwNavbarButtonsGroup>
             <TwNavbarButtonsGroup>
                 <TwAsideLinkButtonWrapper to={"/add"}>
-                    <TwAsideButton icon={["fas", "file-arrow-up"]} />
+                    <TwAsideButton icon={["fas", "file-arrow-up"]} title="Nuovo Brano"/>
                 </TwAsideLinkButtonWrapper>
             </TwNavbarButtonsGroup>
             <Aside onClose={close} visible={visible} />
