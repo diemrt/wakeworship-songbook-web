@@ -7,11 +7,16 @@ import SelectWrapper from "../Select/SelectWrapper.component"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useFetchFormItemsDataQuery } from "../../../redux/formItems/formItems.api"
 import SkeletonWhileLoading from "../../SkeletonWhileLoading/SkeletonWhileLoading.component"
+import { useSubmitSongItemMutation } from "../../../redux/songs/songs.api"
 
 const AddSongForm = () => {
     const { data: formItemsData, isLoading } = useFetchFormItemsDataQuery(undefined)
-    const { handleSubmit, control, register, formState: { errors } } = useForm<FieldValues>()
-    const onSubmit = () => {}
+    const { handleSubmit, control, register, reset, formState: { errors, isSubmitting } } = useForm<FieldValues>()
+    const [ submit ] = useSubmitSongItemMutation()
+    const onSubmit = async (values: FieldValues) => {
+        await submit({values})
+        reset()
+    }
 
     return (
         <SkeletonWhileLoading isLoading={isLoading}>
@@ -32,6 +37,7 @@ const AddSongForm = () => {
                         rules={{ required: errorFormLabels.REQUIRED }}
                         />
                         <SelectWrapper
+                        key={`key_${Date()}`}
                         SelectComponent={TwSelect}
                         SelectWarpperComponent={TwSelectWrapper}
                         LabelComponent={TwLabel}
@@ -55,15 +61,15 @@ const AddSongForm = () => {
                         />
                 </FormSection>
                 <FormSection 
-                title="Contenuto" 
+                title="Contenuto brano" 
                 description="Inserisci il contenuto formattato secondo lo standard definito.">
                     <InputWrapper
                             InputComponent={TwInput}
                             InputWrapperComponent={TwInputWrapper}
                             LabelComponent={TwLabel}
-                            name="song"
-                            label="Brano"
-                            placeholder="Brano"
+                            name="content"
+                            label="Contenuto"
+                            placeholder="Contenuto"
                             type="text"
                             register={register}
                             errors={errors}
@@ -74,7 +80,7 @@ const AddSongForm = () => {
                             Formatta
                         </TwFormatButton>
                 </FormSection>
-                <TwFormSubmitButton type="submit" isLoading={false} icon="file-arrow-up">Aggiungi</TwFormSubmitButton>
+                <TwFormSubmitButton type="submit" isLoading={isSubmitting} icon="file-arrow-up">Aggiungi</TwFormSubmitButton>
             </TwFormGroup>
         </SkeletonWhileLoading>
     )
