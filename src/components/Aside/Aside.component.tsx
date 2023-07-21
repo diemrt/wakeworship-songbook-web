@@ -1,5 +1,6 @@
 import ShowOnCondition from "../ShowOnCondition/ShowOnCondition.component"
-import TwAside, { TwAsideRow, TwAsideShadow, TwCloseButton, TwCloseButtonWrapper } from "./style"
+import SkeletonWhileLoading from "../SkeletonWhileLoading/SkeletonWhileLoading.component"
+import TwAside, { TwAsideRow, TwAsideShadow, TwAsideTitle, TwCloseButton, TwCloseButtonWrapper } from "./style"
 
 interface Props {
     visible: boolean,
@@ -22,8 +23,10 @@ const Aside = ({
                         <TwCloseButton icon={["fas", "xmark"]}/>
                     </TwCloseButtonWrapper>
                 </TwAsideRow>
-                <span>Link</span>
-                <span>Link2</span>
+                <TwAsideTitle>Lista Brani</TwAsideTitle>
+                <SkeletonWhileLoading isLoading={true}>
+                    Link
+                </SkeletonWhileLoading>
             </AsideOnCondition>
         </>
         

@@ -1,10 +1,9 @@
 import { FieldValues, useForm } from "react-hook-form"
 import FormSection from "../FormSection/FormSection.component"
 import InputWrapper from "../Input/InputWrapper.component"
-import TwFormGroup, { TwFormSubmitButton, TwFormatButton, TwInput, TwInputWrapper, TwLabel, TwSelect, TwSelectWrapper } from "./style"
+import TwFormGroup, { TwFormSubmitButton, TwInput, TwInputWrapper, TwLabel, TwSelect, TwSelectWrapper } from "./style"
 import { errorFormLabels } from "../utils"
 import SelectWrapper from "../Select/SelectWrapper.component"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useFetchFormItemsDataQuery } from "../../../redux/formItems/formItems.api"
 import SkeletonWhileLoading from "../../SkeletonWhileLoading/SkeletonWhileLoading.component"
 import { useSubmitSongItemMutation } from "../../../redux/songs/songs.api"
@@ -75,10 +74,6 @@ const AddSongForm = () => {
                             errors={errors}
                             rules={{ required: errorFormLabels.REQUIRED }}
                             />
-                        <TwFormatButton type="button">
-                            <FontAwesomeIcon icon={["fas", "paragraph"]} />
-                            Formatta
-                        </TwFormatButton>
                 </FormSection>
                 <TwFormSubmitButton type="submit" isLoading={isSubmitting} icon="file-arrow-up">Aggiungi</TwFormSubmitButton>
             </TwFormGroup>
