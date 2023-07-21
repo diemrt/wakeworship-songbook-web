@@ -1,17 +1,32 @@
 import { FieldValues, useForm } from "react-hook-form"
 import FormSection from "../FormSection/FormSection.component"
 import InputWrapper from "../Input/InputWrapper.component"
-import TwFormGroup, { TwFormSubmitButton, TwInput, TwInputWrapper, TwLabel, TwSelect, TwSelectWrapper } from "./style"
+import TwFormGroup, { TwFormSubmitButton, TwFormatButton, TwFormatButtonsWrapper, TwInput, TwInputWrapper, TwLabel, TwSelect, TwSelectWrapper } from "./style"
 import { errorFormLabels } from "../utils"
 import SelectWrapper from "../Select/SelectWrapper.component"
 import { useFetchFormItemsDataQuery } from "../../../redux/formItems/formItems.api"
 import SkeletonWhileLoading from "../../SkeletonWhileLoading/SkeletonWhileLoading.component"
 import { useSubmitSongItemMutation } from "../../../redux/songs/songs.api"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 const AddSongForm = () => {
     const { data: formItemsData, isLoading } = useFetchFormItemsDataQuery(undefined)
-    const { handleSubmit, control, register, reset, formState: { errors, isSubmitting } } = useForm<FieldValues>()
+    const { handleSubmit, control, register, setValue, getValues, reset, formState: { errors, isSubmitting } } = useForm<FieldValues>({
+        defaultValues: {
+            content: '(section)[none]phrase'
+        }
+    })
     const [ submit ] = useSubmitSongItemMutation()
+    const addSection = () => {
+        var content = getValues('content')
+        const newValue = `${content}(section)[none]phrase`
+        setValue('content', newValue)
+    }
+    const addRow = () => {
+        var content = getValues('content')
+        const newValue = `${content};[none]phrase`
+        setValue('content', newValue)
+    }
     const onSubmit = async (values: FieldValues) => {
         await submit({values})
         reset()
@@ -74,6 +89,16 @@ const AddSongForm = () => {
                             errors={errors}
                             rules={{ required: errorFormLabels.REQUIRED }}
                             />
+                    <TwFormatButtonsWrapper>
+                        <TwFormatButton type="button" onClick={addSection}>
+                            <FontAwesomeIcon icon={["fas", "heading"]} />
+                            Sezione
+                        </TwFormatButton>
+                        <TwFormatButton type="button" onClick={addRow}>
+                            <FontAwesomeIcon icon={["fas", "arrow-turn-down"]} />
+                            Riga
+                        </TwFormatButton>
+                    </TwFormatButtonsWrapper>
                 </FormSection>
                 <TwFormSubmitButton type="submit" isLoading={isSubmitting} icon="file-arrow-up">Aggiungi</TwFormSubmitButton>
             </TwFormGroup>
