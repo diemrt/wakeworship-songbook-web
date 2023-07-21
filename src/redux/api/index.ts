@@ -17,6 +17,7 @@ export const api = createApi({
   baseQuery: baseQueryWithRetry,
   endpoints: () => ({}),
   tagTypes: [
-    'formItems'
+    'formItems',
+    'songs'
   ]
 })
