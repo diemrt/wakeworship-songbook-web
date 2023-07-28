@@ -18,6 +18,7 @@ export const api = createApi({
   endpoints: () => ({}),
   tagTypes: [
     'formItems',
-    'songs'
+    'songs',
+    'song'
   ]
 })
