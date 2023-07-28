@@ -11,16 +11,16 @@ export type FetchSongsDataType = {
 export type FetchSongDataType = {
     songId: string,
     title: string,
-    key: GenericItemType[],
+    key: GenericItemType,
     capo: string,
     songBlocks: {
         songBlockId: string,
-        songBlockTypeItem: GenericItemType[],
+        songBlockTypeItem: GenericItemType,
         songRows: {
             songRowId: string,
             phraseChords: {
                 phraseChordId: string,
-                chordTypeItem: GenericItemType[],
+                chordTypeItem: GenericItemType,
                 phrase: string
             }[]
         }[]

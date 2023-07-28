@@ -29,6 +29,7 @@ const Aside = ({
                 <SkeletonWhileLoading isLoading={isFetching || isLoading}>
                     <SongsList 
                     data={SongsData}
+                    closeAside={onClose}
                     />
                 </SkeletonWhileLoading>
             </AsideOnCondition>
