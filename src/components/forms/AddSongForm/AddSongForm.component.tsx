@@ -1,7 +1,7 @@
 import { FieldValues, useForm } from "react-hook-form"
 import FormSection from "../FormSection/FormSection.component"
 import InputWrapper from "../Input/InputWrapper.component"
-import TwFormGroup, { TwFormSubmitButton, TwFormatButton, TwFormatButtonsWrapper, TwInput, TwInputWrapper, TwLabel, TwSelect, TwSelectWrapper } from "./style"
+import TwFormGroup, { TwFormSubmitButton, TwFormatButton, TwFormatButtonsWrapper, TwInput, TwInputWrapper, TwLabel, TwSelect, TwSelectWrapper, TwTextArea } from "./style"
 import { errorFormLabels } from "../utils"
 import SelectWrapper from "../Select/SelectWrapper.component"
 import { useFetchFormItemsDataQuery } from "../../../redux/formItems/formItems.api"
@@ -11,19 +11,19 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 const AddSongForm = () => {
     const { data: formItemsData, isLoading } = useFetchFormItemsDataQuery(undefined)
-    const { handleSubmit, control, register, setValue, getValues, reset, formState: { errors, isSubmitting } } = useForm<FieldValues>({
+    const { handleSubmit, control, register, setValue, watch, reset, formState: { errors, isSubmitting } } = useForm<FieldValues>({
         defaultValues: {
             content: '(section)[none]phrase'
         }
     })
     const [ submit ] = useSubmitSongItemMutation()
     const addSection = () => {
-        var content = getValues('content')
+        var content = watch('content')
         const newValue = `${content}(section)[none]phrase`
         setValue('content', newValue)
     }
     const addRow = () => {
-        var content = getValues('content')
+        var content = watch('content')
         const newValue = `${content};[none]phrase`
         setValue('content', newValue)
     }
@@ -78,7 +78,7 @@ const AddSongForm = () => {
                 title="Contenuto brano" 
                 description="Inserisci il contenuto formattato secondo lo standard definito.">
                     <InputWrapper
-                            InputComponent={TwInput}
+                            InputComponent={TwTextArea}
                             InputWrapperComponent={TwInputWrapper}
                             LabelComponent={TwLabel}
                             name="content"
