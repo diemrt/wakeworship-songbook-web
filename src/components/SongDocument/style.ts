@@ -8,6 +8,7 @@ export const TwSongInfoLabel = tw.h2`text-zinc-500`
 export const TwSongInfoValue = tw.p`text-zinc-800 font-bold`
 export const TwSongChord = tw.span`w-fit text-orange-500 bg-orange-100 font-medium text-base px-2 my-2 rounded-md border border-orange-500`
 export const TwEmptyChord = tw.span`w-fit font-medium text-base px-2 my-2 rounded-md border invisible`
+export const TwSongContentWrapper = tw.div`flex justify-center md:justify-start md:pl-10`
 export const TwSongBlocksWrapper = tw.div`flex flex-col gap-20`
 export const TwSongBlocks = tw.div`flex flex-col gap-5 md:flex-row md:gap-20`
 export const TwSongBlockName = tw.h3`text-xl uppercase font-bold text-zinc-700 md:text-xl`

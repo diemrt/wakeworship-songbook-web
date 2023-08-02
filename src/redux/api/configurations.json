@@ -3,8 +3,8 @@
       "development": {
         "api": {
           "host": "localhost",
-          "port": "5261",
-          "protocol": "http",
+          "port": "7036",
+          "protocol": "https",
           "prefix": "api",
           "version": "1"
         }

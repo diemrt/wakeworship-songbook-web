@@ -1,5 +1,5 @@
 import { FetchSongDataType } from "../../redux/songs/songs.type"
-import TwSongDocumentWrapper, { TwEmptyChord, TwSongBlockName, TwSongBlocks, TwSongBlocksWrapper, TwSongChord, TwSongDocumentHeader, TwSongInfo, TwSongInfoLabel, TwSongInfoValue, TwSongPhrase, TwSongPhraseChord, TwSongRows, TwSongRowsWrapper, TwSongTitle } from "./style"
+import TwSongDocumentWrapper, { TwEmptyChord, TwSongBlockName, TwSongBlocks, TwSongBlocksWrapper, TwSongChord, TwSongContentWrapper, TwSongDocumentHeader, TwSongInfo, TwSongInfoLabel, TwSongInfoValue, TwSongPhrase, TwSongPhraseChord, TwSongRows, TwSongRowsWrapper, TwSongTitle } from "./style"
 
 interface Props {
     data?: FetchSongDataType
@@ -21,33 +21,35 @@ const SongDocument = ({
                     <TwSongInfoValue>{data?.capo}</TwSongInfoValue>
                 </TwSongInfo>
             </TwSongDocumentHeader>
-            <TwSongBlocksWrapper>
-                {
-                    data?.songBlocks.map((songBlock) => (
-                        <TwSongBlocks key={songBlock.songBlockId}>
-                            <TwSongBlockName>{songBlock.songBlockTypeItem.label}</TwSongBlockName>
-                            <TwSongRowsWrapper>
-                                {
-                                    songBlock.songRows.map((songRows) => (
-                                        <TwSongRows key={songRows.songRowId}>
-                                            {
-                                                songRows.phraseChords.map((phraseChords) => (
-                                                    <TwSongPhraseChord key={phraseChords.phraseChordId}>
-                                                        {phraseChords.chordTypeItem.value !== "none" ? (
-                                                            <TwSongChord>{phraseChords.chordTypeItem.label}</TwSongChord>
-                                                        ) : <TwEmptyChord>none</TwEmptyChord>}
-                                                        <TwSongPhrase>{phraseChords.phrase}</TwSongPhrase>
-                                                    </TwSongPhraseChord>
-                                                ))
-                                            }
-                                        </TwSongRows>
-                                    ))
-                                }
-                            </TwSongRowsWrapper>
-                        </TwSongBlocks>
-                    ))
-                }
-            </TwSongBlocksWrapper>
+            <TwSongContentWrapper>
+                <TwSongBlocksWrapper>
+                    {
+                        data?.songBlocks.map((songBlock) => (
+                            <TwSongBlocks key={songBlock.songBlockId}>
+                                <TwSongBlockName>{songBlock.songBlockTypeItem.label}</TwSongBlockName>
+                                <TwSongRowsWrapper>
+                                    {
+                                        songBlock.songRows.map((songRows) => (
+                                            <TwSongRows key={songRows.songRowId}>
+                                                {
+                                                    songRows.phraseChords.map((phraseChords) => (
+                                                        <TwSongPhraseChord key={phraseChords.phraseChordId}>
+                                                            {phraseChords.chordTypeItem.value !== "none" ? (
+                                                                <TwSongChord>{phraseChords.chordTypeItem.label}</TwSongChord>
+                                                            ) : <TwEmptyChord>none</TwEmptyChord>}
+                                                            <TwSongPhrase>{phraseChords.phrase}</TwSongPhrase>
+                                                        </TwSongPhraseChord>
+                                                    ))
+                                                }
+                                            </TwSongRows>
+                                        ))
+                                    }
+                                </TwSongRowsWrapper>
+                            </TwSongBlocks>
+                        ))
+                    }
+                </TwSongBlocksWrapper>
+            </TwSongContentWrapper>
         </TwSongDocumentWrapper>
     )
 }
