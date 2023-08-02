@@ -3,7 +3,8 @@ import tw from "twin.macro";
 import ButtonWithLoader from "../../ButtonWithLoader/ButtonWithLoader.component";
 
 const TwLoginWrapper = tw.section`flex flex-col justify-start items-center px-12 py-20 gap-10 animate-fade-in text-zinc-800 md:py-32 lg:px-20`
-export const TwLoginHeaderTitle = tw.h3`w-full flex flex-row gap-5 items-center text-3xl font-black`
+export const TwLoginLogoTitle = tw.h3`w-full flex flex-row gap-5 items-center text-3xl font-black`
+export const TwLoginHeaderTitle = tw.h3`text-3xl font-medium md:text-xl`
 export const TwLoginHeader = tw.section`w-full flex flex-col items-start gap-5 max-w-xs lg:w-80`
 export const TwLoginHeaderDescription = tw.p`text-zinc-500`
 export const TwLoginForm = tw.form`flex flex-col gap-5 w-full max-w-xs lg:w-80`

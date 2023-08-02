@@ -1,4 +1,4 @@
-import TwLoginWrapper, { TwLoginHeader, TwLoginHeaderDescription, TwLoginHeaderTitle, TwLoginForm, TwForgotPasswordLink, TwLoginInput, TwLoginInputWrapper, TwLoginLabel, TwLoginButton } from "./style"
+import TwLoginWrapper, { TwLoginHeader, TwLoginHeaderDescription, TwLoginForm, TwForgotPasswordLink, TwLoginInput, TwLoginInputWrapper, TwLoginLabel, TwLoginButton, TwLoginLogoTitle } from "./style"
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useLoginMutation } from "../../../redux/auth/auth.api";
 import InputWrapper from "../Input/InputWrapper.component";
@@ -23,10 +23,10 @@ const LoginForm = () => {
     return (
         <TwLoginWrapper>
             <TwLoginHeader>
-                <TwLoginHeaderTitle>
+                <TwLoginLogoTitle>
                     <TwLogo src="/logo.svg" />
                     Songbook
-                </TwLoginHeaderTitle>
+                </TwLoginLogoTitle>
                 <TwLoginHeaderDescription>Bentornato! Inserisci le tue credenziali per accedere 🔓</TwLoginHeaderDescription>
             </TwLoginHeader>
             <TwLoginForm onSubmit={handleSubmit(onSubmit)}>
