@@ -1,4 +1,4 @@
-import TwLoginWrapper, { TwLoginHeader, TwLoginHeaderDescription, TwLoginForm, TwForgotPasswordLink, TwLoginInput, TwLoginInputWrapper, TwLoginLabel, TwLoginButton, TwLoginLogoTitle } from "./style"
+import TwLoginWrapper, { TwLoginHeader, TwLoginHeaderDescription, TwLoginForm, TwForgotPasswordLink, TwLoginInput, TwLoginInputWrapper, TwLoginLabel, TwLoginButton, TwLoginLogoTitle, TwLoginLogoTitleWrapper, TwLoginLogoCompanyName, TwLoginLogoWrapper } from "./style"
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useLoginMutation } from "../../../redux/auth/auth.api";
 import InputWrapper from "../Input/InputWrapper.component";
@@ -23,10 +23,13 @@ const LoginForm = () => {
     return (
         <TwLoginWrapper>
             <TwLoginHeader>
-                <TwLoginLogoTitle>
+                <TwLoginLogoTitleWrapper>
                     <TwLogo src="/logo.svg" />
-                    Songbook
-                </TwLoginLogoTitle>
+                    <TwLoginLogoWrapper>
+                        <TwLoginLogoCompanyName>Powered by WakeWorship</TwLoginLogoCompanyName>
+                        <TwLoginLogoTitle>Songbook</TwLoginLogoTitle>
+                    </TwLoginLogoWrapper>
+                </TwLoginLogoTitleWrapper>
                 <TwLoginHeaderDescription>Bentornato! Inserisci le tue credenziali per accedere 🔓</TwLoginHeaderDescription>
             </TwLoginHeader>
             <TwLoginForm onSubmit={handleSubmit(onSubmit)}>

@@ -2,8 +2,11 @@ import { Link } from "react-router-dom";
 import tw from "twin.macro";
 import ButtonWithLoader from "../../ButtonWithLoader/ButtonWithLoader.component";
 
-const TwLoginWrapper = tw.section`flex flex-col justify-start items-center px-12 py-20 gap-10 animate-fade-in text-zinc-800 md:py-32 lg:px-20`
-export const TwLoginLogoTitle = tw.h3`w-full flex flex-row gap-5 items-center text-3xl font-black`
+const TwLoginWrapper = tw.section`flex flex-col justify-center items-center px-12 py-20 gap-10 animate-fade-in text-zinc-800 lg:py-0 lg:px-20`
+export const TwLoginLogoTitleWrapper = tw.h3`w-full flex flex-row gap-5 items-center`
+export const TwLoginLogoWrapper = tw.div`w-full flex flex-col gap-0`
+export const TwLoginLogoTitle = tw.h1`text-2xl font-black`
+export const TwLoginLogoCompanyName = tw.small`text-xs font-medium text-zinc-700`
 export const TwLoginHeaderTitle = tw.h3`text-3xl font-medium md:text-xl`
 export const TwLoginHeader = tw.section`w-full flex flex-col items-start gap-5 max-w-xs lg:w-80`
 export const TwLoginHeaderDescription = tw.p`text-zinc-500`

@@ -1,10 +1,12 @@
-import TwLoginSidebarWrapper, { TwIconBottomLeft, TwIconTopRight } from "./style"
+import TwLoginSidebarWrapper, {  TwIconFour, TwIconOne, TwIconThree, TwIconTwo } from "./style"
 
 const LoginSidebar = () => {
     return (
         <TwLoginSidebarWrapper>
-            <TwIconBottomLeft icon={["fas", "guitar"]} />
-            <TwIconTopRight icon={["fas", "microphone"]}/>
+            <TwIconOne icon={["fas", "guitar"]} />
+            <TwIconTwo icon={["fas", "drum"]}/>
+            <TwIconThree icon={["fas", "guitar"]} />
+            <TwIconFour icon={["fas", "drum"]}/>
         </TwLoginSidebarWrapper>
     )
 }
